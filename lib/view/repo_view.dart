@@ -59,9 +59,9 @@ class _RepoListState extends State<RepoList> implements RepoListViewContract {
           )
       );
     } else {
-      widget = new MaterialList(
-        type: MaterialListType.twoLine,
-        padding: new EdgeInsets.symmetric(vertical: 8.0),
+      widget = new ScrollableList(
+        padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+        itemExtent: _RepoListItem.height,
         children: _buildContactList(),
       );
     }
@@ -94,10 +94,59 @@ class _RepoListState extends State<RepoList> implements RepoListViewContract {
 
 class _RepoListItem extends Card {
 
+  static final double height = 150.0;
+
   _RepoListItem({@required Repo repo, @required GestureTapCallback onTap}) :
         super(
-          child: new Center(
-              child: new Text(repo.fullName)
+          child: new Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: new Row(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    new Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          new Align(
+                            alignment: FractionalOffset.centerLeft,
+                            child: new SizedBox(
+                                width: 56.0,
+                                child: new ClipRRect(
+                                    borderRadius: new BorderRadius.circular(
+                                        50.0),
+                                    child: new Image.network(
+                                      repo.owner.avatarUrl,
+                                      alignment: FractionalOffset.centerLeft,
+                                      fit: ImageFit.cover,
+                                    )
+                                )
+                            ),
+                          ),
+
+                        ]
+                    ),
+                    new Padding(
+                        padding: const EdgeInsets.only(left: 8.0),
+                        child: new Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            new Align(
+                                alignment: FractionalOffset.topLeft,
+                                child: new Text(repo.name)
+                            ),
+                            new Align(
+                                alignment: FractionalOffset.topLeft,
+                                child: new Text(repo.fullName)
+                            )
+                          ],
+                        )
+                    )
+
+//                    new Center(
+//                        child: new Text(repo.fullName)
+//                    )
+                  ]
+              )
           )
       );
 }

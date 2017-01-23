@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:intl/intl.dart';
+import 'user.dart';
 
 class Repo {
 
@@ -9,7 +10,7 @@ class Repo {
   final String htmlUrl;
 
   //add this
-  //final User owner;
+  final User owner;
   final int stargazersCount;
   final int watchersCount;
   final int forks;
@@ -17,7 +18,7 @@ class Repo {
 
   const Repo(
       {this.id, this.name, this.fullName, this.htmlUrl, this.stargazersCount,
-      this.watchersCount, this.forks, this.language});
+      this.watchersCount, this.forks, this.language, this.owner});
 
   Repo.fromMap(Map<String, dynamic> map) :
       id = map['id'],
@@ -27,7 +28,8 @@ class Repo {
       stargazersCount = map['stargazers_count'],
       watchersCount = map['watchers_count'],
       forks = map['forks'],
-      language = map['language'];
+      language = map['language'],
+      owner = new User.fromMap(map['owner']);
 
 }
 
