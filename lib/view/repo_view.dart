@@ -94,7 +94,7 @@ class _RepoListState extends State<RepoList> implements RepoListViewContract {
 
 class _RepoListItem extends Card {
 
-  static final double height = 150.0;
+  static final double height = 100.0;
 
   _RepoListItem({@required Repo repo, @required GestureTapCallback onTap}) :
         super(
@@ -110,7 +110,7 @@ class _RepoListItem extends Card {
                           new Align(
                             alignment: FractionalOffset.centerLeft,
                             child: new SizedBox(
-                                width: 56.0,
+                                width: 48.0,
                                 child: new ClipRRect(
                                     borderRadius: new BorderRadius.circular(
                                         50.0),
