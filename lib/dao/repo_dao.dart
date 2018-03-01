@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
-import 'package:flutter/http.dart' as http;
+import 'package:http/http.dart' as http;
 
 import 'package:u2020d/model/repo.dart';
 

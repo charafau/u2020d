@@ -1,3 +1,5 @@
+uses-material-design: true
+
 name: u2020d
 description: A new flutter project.
 dependencies:

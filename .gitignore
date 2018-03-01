@@ -1,9 +1,15 @@
+# files ignored according to `flutter create`
 .DS_Store
 .atom/
 .idea
+.vscode/
 .packages
 .pub/
 build/
 ios/.generated/
 packages
-pubspec.lock
+.flutter-plugins
+
+# developer additional files to ignore
+*.iml
+*.log
