@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
-
 import 'package:u2020d/model/repo.dart';
 import 'package:u2020d/presenter/repo_presenter.dart';
 
@@ -59,7 +58,7 @@ class _RepoListState extends State<RepoList> implements RepoListViewContract {
           )
       );
     } else {
-      widget = new ScrollableList(
+      widget = new ListView (
         padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
         itemExtent: _RepoListItem.height,
         children: _buildContactList(),
@@ -117,7 +116,7 @@ class _RepoListItem extends Card {
                                     child: new Image.network(
                                       repo.owner.avatarUrl,
                                       alignment: FractionalOffset.centerLeft,
-                                      fit: ImageFit.cover,
+                                      fit: BoxFit.cover,
                                     )
                                 )
                             ),
